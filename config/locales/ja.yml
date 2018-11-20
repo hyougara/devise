@@ -1,0 +1,20 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        username: 名前
+        password: パスワード
+        password_confirmation: パスワード確認
+        email: メールアドレス
+
+  enum:
+    status:
+      draft: 未着手
+      working: 着手
+      published: 完了
+
+    priority:
+      low: 低
+      midium: 中
+      high: 高
+      
