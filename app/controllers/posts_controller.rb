@@ -1,25 +1,39 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
-    @posts = Post.all
-    @q = Post.ransack(params[:q])
+    # @post = Post.all
+    @posts = current_user.posts
+    # @q = Post.ransack(params[:q])
+    @q = current_user.posts.ransack(params[:q])
     @posts = @q.result
     @posts = @q.result.page(params[:page]).per(5)
+    
   end
 
   def show
+    
   end
 
   def new
-    @post = Post.new
+    # @post = Post.new
+    @post = current_user.posts.build
   end
 
   def edit
   end
 
   def create
+    # @post = Post.new(post_params)
     @post = current_user.posts.build(post_params)
+    # @post = current_user.posts.build(
+    # title: params[:title]
+    # content: params[:content]
+    # status: params[:status]
+    # priority: params[:priority]
+
+    # )
     @post.tag_list.add(params[:tag_list],parse: true)
     # @post = Post.new(post_params)
       if @post.save
@@ -45,7 +59,9 @@ class PostsController < ApplicationController
   private
 
     def set_post
-      @post = Post.find(params[:id])
+      # @post = Post.find(params[:id])
+      @post = current_user.posts.find_by(id: params[:id])
+
     end
 
     def post_params

@@ -18,6 +18,7 @@
   </thead>
 
   <tbody>
+  <% if current_user %>
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.title %></td>
@@ -31,6 +32,7 @@
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+  <% end %>
   </tbody>
 </table>
 
