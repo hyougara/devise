@@ -5,5 +5,6 @@ class Post < ApplicationRecord
   enum status:{draft: 0, working: 1, published: 2}
   enum priority:{low: 0, midium: 1, high: 2}
 
-  acts_as_taggable_on :labels
+  # acts_as_taggable_on :labels label.tag_list生成される
+  acts_as_taggable   # acts_as_taggable_on :tagsのエイリアス
 end

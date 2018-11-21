@@ -20,6 +20,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    @post.tag_list.add(params[:tag_list],parse: true)
     # @post = Post.new(post_params)
       if @post.save
         redirect_to @post, notice: 'Post was successfully created.'
@@ -49,6 +50,6 @@ class PostsController < ApplicationController
 
     def post_params
       params.require(:post).permit(:title, :content, :status, :priority, :user_id, :deadline, :limit,
-                                    :title_cont, :content_cont, :status_in, :priority_in, :limit_in, :label)
+                                    :title_cont, :content_cont, :status_in, :priority_in, :limit_in, :tag_list)
     end
 end

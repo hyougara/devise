@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :tag ,"タグ(,区切り)"%>
-    <%= form.text_field_tag "post[label_list]", @post.label_list.join(",")%>
+    <%= text_field_tag "post[tag_list]", @post.tag_list.join(",")%>
   </div>
 
   <div class="actions">
