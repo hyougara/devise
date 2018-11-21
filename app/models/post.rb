@@ -4,4 +4,6 @@ class Post < ApplicationRecord
   belongs_to :user
   enum status:{draft: 0, working: 1, published: 2}
   enum priority:{low: 0, midium: 1, high: 2}
+
+  acts_as_taggable_on :labels
 end

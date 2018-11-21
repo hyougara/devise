@@ -5,7 +5,7 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable ,
           :lockable, :timeoutable, :trackable
 
-  has_many :posts
+  has_many :posts ,dependent: :destroy
 end
 # ,:omniauthable, omniauth_providers: [:twitter]
 # :confirmable, 

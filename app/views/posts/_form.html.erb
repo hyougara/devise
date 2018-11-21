@@ -26,6 +26,11 @@
     <%= form.date_select :limit , use_month_numbers: true%>
   </div>
 
+  <div class="field">
+    <%= form.label :tag ,"タグ(,区切り)"%>
+    <%= form.text_field_tag "post[label_list]", @post.label_list.join(",")%>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
