@@ -13,18 +13,24 @@
 
 <p>
   <strong>Status:</strong>
-  <%= @post.status %>
+  <%= @post.status_i18n %>
 </p>
 
 <p>
   <strong>Priority:</strong>
-  <%= @post.priority %>
+  <%= @post.priority_i18n %>
 </p>
 
 <p>
   <strong>Limit:</strong>
   <%= @post.limit %>
 </p>
+
+<p>
+  <strong>tag:</strong>
+  <%= @post.tag_list%>
+</p>
+
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
