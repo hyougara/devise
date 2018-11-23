@@ -6,6 +6,7 @@ class User < ApplicationRecord
           :lockable, :timeoutable, :trackable
 
   has_many :posts ,dependent: :destroy
+  mount_uploader :image_name, ImageNameUploader
 end
 # ,:omniauthable, omniauth_providers: [:twitter]
 # :confirmable, 

@@ -2,7 +2,7 @@
     <nav>
       <% if user_signed_in?  %>  <%# Deviseのhelper %>
         <%= link_to "home", root_path %>
-        <strong><%= link_to current_user.username, homes_show_path  %></strong>
+        <strong><%= link_to current_user.username, current_user  %></strong>
         <%= link_to "ログアウト", destroy_user_session_path ,method: :delete %>
         <%= link_to "Task作成",new_post_path %>
       <% if current_user.admin? %>

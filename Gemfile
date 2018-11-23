@@ -14,6 +14,8 @@ gem "rails_admin"
 gem "cancancan"
 gem 'devise'
 gem 'omniauth-twitter'
+gem 'carrierwave'
+gem 'mini_magick'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
