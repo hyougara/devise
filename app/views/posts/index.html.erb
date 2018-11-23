@@ -24,7 +24,7 @@
         <td><%= post.content %></td>
         <td><%= post.status_i18n %></td>
         <td><%= post.priority_i18n %></td>
-        <td><%= l post.limit %></td>
+        <td><%= post.limit %></td>
         <td><%= render 'posts/tag_list', tag_list: post.tag_list %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
