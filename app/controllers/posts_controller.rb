@@ -37,7 +37,7 @@ class PostsController < ApplicationController
     @post.tag_list.add(params[:tag_list],parse: true)
     # @post = Post.new(post_params)
       if @post.save
-        redirect_to @post, notice: 'Post was successfully created.'
+        redirect_to root_path, notice: 'Post was successfully created.'
       else
         render :new 
       end
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
 
   def update
       if @post.update(post_params)
-        redirect_to @post, notice: 'Post was successfully updated.'
+        redirect_to root_path, notice: 'Post was successfully updated.'
       else
         render :edit 
       end

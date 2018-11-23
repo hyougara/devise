@@ -4,8 +4,19 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username ,autofocus: true%>
+  </div>
+
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="image">
+    <%= f.label :image_name %>
+    <%= f.file_field :image_name %>
   </div>
 
   <div class="field">
@@ -26,4 +37,4 @@
   </div>
 <% end %>
 
-<%= render "users/shared/links" %>
+<%= render "devise/shared/links" %>

@@ -1,2 +1,6 @@
-<h1>ようこそ、<%= current_user.username %>さん</h1>
-<p>ユーザー用ページ</p>
+<% provide(:title, current_user.username) %>
+<h1><%= current_user.username %>さん</h1>
+<p><%= current_user.image_name %></p>
+<p><%= current_user.email %></p>
+<%= link_to "プロフィール変更", edit_user_registration_path %>
+
