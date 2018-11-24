@@ -1,13 +1,13 @@
-class PostsController < ApplicationController
+class PostsController < BaseController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
   def index
     # @post = Post.all
-    @posts = current_user.posts
+    # @posts = current_user.posts
     # @q = Post.ransack(params[:q])
     @q = current_user.posts.ransack(params[:q])
-    @posts = @q.result
+    # @posts = @q.result
     @posts = @q.result.page(params[:page]).per(5)
     
   end
