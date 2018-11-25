@@ -6,7 +6,7 @@
       = form.text_field  :title
     .form-group
       = form.label :content
-      = form.text_field :content
+      = form.text_area :content
       = form.hidden_field :user_id, value: current_user.id
     .from-group
       = form.label :status ,"状態"
