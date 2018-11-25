@@ -4,10 +4,10 @@ class PostsController < ApplicationController
 
   def index
     # @post = Post.all
-    @posts = current_user.posts
+    # @posts = current_user.posts
     # @q = Post.ransack(params[:q])
     @q = current_user.posts.ransack(params[:q])
-    @posts = @q.result
+    # @posts = @q.result
     @posts = @q.result.page(params[:page]).per(5)
     
   end
@@ -66,7 +66,7 @@ class PostsController < ApplicationController
 
     def post_params
       params.require(:post).permit(:title, :content, :status, :priority, :user_id, :deadline, :limit,
-                                    :title_cont, :content_cont, :status_in, :priority_in, :limit_in, :tag_list)
+                                    :title_cont, :content_cont, :status_eq, :priority_eq, :limit_in, :tag_list)
     end
 
     

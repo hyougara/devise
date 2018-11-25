@@ -7,4 +7,11 @@ class Post < ApplicationRecord
 
   # acts_as_taggable_on :labels label.tag_list生成される
   acts_as_taggable   # acts_as_taggable_on :tagsのエイリアス
+  # def self.search(search)
+  #   if search
+  #     Post.where('title like ?', "%#{search}%")
+  #   else
+  #     Post.all
+  #   end
+  # end
 end

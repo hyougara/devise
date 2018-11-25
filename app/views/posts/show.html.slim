@@ -1,0 +1,28 @@
+- provide(:title, "詳細")
+p
+  strong
+    | Title:
+  = @post.title
+p
+  strong
+    | Content:
+  = @post.content
+p
+  strong
+    | Status:
+  = @post.status_i18n
+p
+  strong
+    | Priority:
+  = @post.priority_i18n
+p
+  strong
+    | Limit:
+  = @post.limit
+p
+  strong
+    | tag:
+  = @post.tag_list
+= link_to 'Edit', edit_post_path(@post)
+|  | 
+= link_to 'Back', posts_path

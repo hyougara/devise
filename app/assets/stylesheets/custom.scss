@@ -1,2 +1,46 @@
 @import "bootstrap";
 @import "bootstrap-sprockets";
+
+
+body{
+  padding-top: 70px;
+}
+
+.user-profile{
+    .user-body{
+      .link{
+        padding:30px 0 30px 100px;
+      }
+      .user-email{
+        margin:20px 100px 20px 100px;
+        padding:10px;
+        border:solid 1px #d7d7d779;
+        .user-useremail{
+          padding:10px;
+
+        }
+        .email{
+          border-bottom: solid 1px #d7d7d779;
+        }
+
+      }
+      .user-name{
+        margin:20px 100px 20px 100px;
+        padding:10px;
+        border:solid 1px #d7d7d779;
+
+        .name{
+          border-bottom: solid 1px #d7d7d779;
+        }
+        .user-username{
+          padding:10px;
+        }
+
+      }
+      .user-image{
+        border-radius: 50%;
+
+      }
+
+    }
+}

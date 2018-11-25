@@ -16,7 +16,7 @@ gem 'devise'
 gem 'omniauth-twitter'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'slim'
+gem 'slim-rails'
 gem 'html2slim'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

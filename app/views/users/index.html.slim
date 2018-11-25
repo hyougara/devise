@@ -1,0 +1,8 @@
+- if current_user.admin?
+  h1
+    | user管理
+  = render @users
+- else
+  p
+    | あなたには権限がありません
+  = link_to "Back", root_path
