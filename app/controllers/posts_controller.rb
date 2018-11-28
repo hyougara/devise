@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     @q = current_user.posts.ransack(params[:q])
     # @posts = @q.result
     @posts = @q.result.page(params[:page]).per(5)
-    
+    # @posts = Post.all
   end
 
   def show
@@ -27,6 +27,7 @@ class PostsController < ApplicationController
   def create
     # @post = Post.new(post_params)
     @post = current_user.posts.build(post_params)
+
     # @post = current_user.posts.build(
     # title: params[:title]
     # content: params[:content]
@@ -66,7 +67,8 @@ class PostsController < ApplicationController
 
     def post_params
       params.require(:post).permit(:title, :content, :status, :priority, :user_id, :deadline, :limit,
-                                    :title_cont, :content_cont, :status_eq, :priority_eq, :limit_in, :tag_list)
+                                    :title_cont, :content_cont, :status_eq, :priority_eq, :limit_in, :tag_list,
+                                    { :users_ids=> [] })
     end
 
     

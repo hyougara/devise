@@ -309,6 +309,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   enum_help
+  font-awesome-rails
   html2slim
   jbuilder (~> 2.5)
   jquery-rails

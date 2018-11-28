@@ -13,6 +13,8 @@ header
           - if user_signed_in?
               li = link_to 'Task作成', new_post_path
               li = link_to 'My Page', current_user
+              / これを管理者のみに表示する様にする
+              li = link_to '管理者ページ', "/admin/users"
 
         ul.nav.navbar-nav.navbar-right
           - if user_signed_in?
