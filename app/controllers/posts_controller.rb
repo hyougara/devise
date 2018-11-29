@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    
+    @favorites_count = Favorite.where(post_id: @post.id).count
   end
 
   def new

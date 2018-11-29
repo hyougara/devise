@@ -6,13 +6,16 @@ Rails.application.routes.draw do
     :sessions         => 'users/sessions',
     :registrations    => 'users/registrations',
   }
+  # progateの書き方 あとで書き直す
+  post "favorites/:post_id/create" => "favorites#create"
+  post "favorites/:post_id/destroy" => "favorites#destroy"
 
   resources :posts
   resources :users ,only: [:index, :show, :destroy]
 
-  resources :posts do
+  # resources :posts do
     resources :favorite, only: [:create, :destroy]
-  end
+  # end
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 # admin用のpageを作成する /admin/usersというルートが作成される
 # admin/users用の新しいコントロールが必要になる
