@@ -3,13 +3,8 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    # @post = Post.all
-    # @posts = current_user.posts
-    # @q = Post.ransack(params[:q])
     @q = current_user.posts.ransack(params[:q])
-    # @posts = @q.result
-    @posts = @q.result.page(params[:page]).per(5)
-    # @posts = Post.all
+    @posts = @q.result.page(params[:page])
   end
 
   def show
@@ -17,7 +12,6 @@ class PostsController < ApplicationController
   end
 
   def new
-    # @post = Post.new
     @post = current_user.posts.build
   end
 
@@ -25,20 +19,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    # @post = Post.new(post_params)
     @post = current_user.posts.build(post_params)
-
-    # @post = current_user.posts.build(
-    # title: params[:title]
-    # content: params[:content]
-    # status: params[:status]
-    # priority: params[:priority]
-
-    # )
     @post.tag_list.add(params[:tag_list],parse: true)
-    # @post = Post.new(post_params)
       if @post.save
-        redirect_to root_path, notice: 'Post was successfully created.'
+        redirect_to root_path, notice: '投稿しました'
       else
         render :new 
       end
@@ -46,7 +30,7 @@ class PostsController < ApplicationController
 
   def update
       if @post.update(post_params)
-        redirect_to root_path, notice: 'Post was successfully updated.'
+        redirect_to root_path, notice: '更新しました'
       else
         render :edit 
       end
@@ -54,14 +38,13 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-      redirect_to posts_url, notice: 'Post was successfully destroyed.'
+      redirect_to posts_url, notice: '削除しました'
   end
 
   private
 
     def set_post
-      # @post = Post.find(params[:id])
-      @post = current_user.posts.find_by(id: params[:id])
+      @post = current_user.posts.find(params[:id])
 
     end
 

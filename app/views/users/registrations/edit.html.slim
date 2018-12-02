@@ -1,6 +1,4 @@
-h2
-  | Edit 
-  = resource_name.to_s.humanize
+h2 ユーザー編集 
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = devise_error_messages!
   .field
@@ -49,13 +47,10 @@ h2
     = f.label :image_name
     = f.file_field :image_name
   .actions
-    = f.submit "Update"
+    = f.submit "更新"
 - if current_user.admin?
-  = link_to "Back", :back
+  = link_to "戻る", :back
 - else
-  h3
-    | Cancel my account
-  p
-    | Unhappy? 
-    = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
-  = link_to "Back", :back
+  p アカウントを削除する場合はこちら
+  = button_to "アカウント削除", registration_path(resource_name), data: { confirm: "本当に削除しますか？" }, method: :delete
+  = link_to "戻る", :back

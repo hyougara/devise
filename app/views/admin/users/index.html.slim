@@ -1,23 +1,15 @@
 - provide(:title, "管理者ページ")
-h1
-  | 管理者用ページ
-  table.table
-    thead
+h1 管理者用ページ
+table.table
+  thead
+    tr
+      th id
+      th 名前
+      th 登録日
+  tbody
+    - @users.each do |user|
       tr
-        th
-          | id
-        th
-          | 名前
-        th
-          | 登録日
-    tbody
-      - @users.each do |user|
-        tr
-          td
-            = user.id
-          td
-            = user.username
-          td
-            = user.created_at
-          td
-            = link_to "削除", user, method: :delete, data:{ confirm:"本当に消しますか？" }
+        td = user.id
+        td = user.username
+        td = user.created_at
+        td = link_to "削除", user, method: :delete, data:{ confirm:"本当に消しますか？" }

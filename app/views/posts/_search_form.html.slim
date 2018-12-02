@@ -1,25 +1,11 @@
 = search_form_for @q, method: :get  do |f|
   .field
-    = f.label :title_cont
-    = f.text_field :title_cont,placeholder: "部分一致"
+    = f.label :title
+    = f.text_field :title_cont,placeholder: "部分一致", class: 'form-control'
   .field
-    = f.label :content_cont, placeholder: "部分一致"
-    = f.text_field :content_cont
-  / .field
-  /   = f.label :status_eq ,"状態"
-  /   = f.select :status_eq ,Post.statuses_i18n.invert, :include_blank => "指定なし"
-  / .field
-  /   = f.label :priority_eq,"優先度"
-  /   = f.select :priority_eq ,Post.priorities_i18n.invert, :include_blank => "指定なし"
-  / .field
-  /   = f.label :limit_in ,"期限"
-  /   = f.date_field :limit_in , use_month_numbers: true
-    - # date_selectだと年、月、日付を選ぶ
-    - # date_fieldだとカレンダーで選べる
-  .field
-    = f.label :tag ,"タグ"
-    = select_tag :tag_list , :include_blank => "指定なし"
+    = f.label :content
+    = f.text_field :content_cont, placeholder: "部分一致", class: 'form-control'
   .actions
-    = f.submit "検索"
+    = f.submit "検索", class: 'btn btn-warning'
   = link_to "クリア", url_for
   = paginate @posts

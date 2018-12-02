@@ -13,8 +13,8 @@ header
           - if user_signed_in?
               li = link_to 'Task作成', new_post_path
               li = link_to 'My Page', current_user
-              / これを管理者のみに表示する様にする
-              li = link_to '管理者ページ', "/admin/users"
+              - if current_user.admin?
+                li = link_to '管理者ページ', "/admin/users"
 
         ul.nav.navbar-nav.navbar-right
           - if user_signed_in?
@@ -26,16 +26,3 @@ header
                 li = link_to 'ログアウト', destroy_user_session_path, method: :delete
           - else
             li = link_to 'ログイン', new_user_session_path
-            
-            / - if user_signed_in?
-        /   - # Deviseのhelper
-        /   = link_to "home", root_path
-        /     = link_to current_user.username, current_user
-        /   = link_to "ログアウト", destroy_user_session_path ,method: :delete
-        /   = link_to "Task作成",new_post_path
-        /   - if current_user.admin?
-        /     = link_to "管理画面", "/admin"
-        /     = link_to "user管理", users_path
-        / - else
-        /   = link_to "ログイン", new_user_session_path
-        /   = link_to "サインアップ", new_user_registration_path

@@ -9,31 +9,25 @@
   end
   = @favorites_count
 p
-  strong
-    | Title:
+  strong Title:
   = @post.title
 p
-  strong
-    | Content:
+  strong Content:
   = @post.content
 p
-  strong
-    | Status:
+  strong Status:
   = @post.status_i18n
 p
-  strong
-    | Priority:
+  strong Priority:
   = @post.priority_i18n
 p
-  strong
-    | Limit:
+  strong Limit:
   = @post.limit
 p
-  strong
-    | tag:
+  strong tag:
   = @post.tag_list
 
 
-= link_to 'Edit', edit_post_path(@post)
+= link_to '編集', edit_post_path(@post)
 |  | 
-= link_to 'Back', posts_path
+= link_to '戻る', posts_path
