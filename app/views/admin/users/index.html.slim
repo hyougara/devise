@@ -11,5 +11,5 @@ table.table
       tr
         td = user.id
         td = user.username
-        td = user.created_at
+        td = l user.created_at, format: :dot
         td = link_to "削除", user, method: :delete, data:{ confirm:"本当に消しますか？" }

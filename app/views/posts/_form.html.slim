@@ -1,6 +1,6 @@
 = form_with(model: post, local: true) do |form|
   = render 'shared/error_message'
-  form.form-horizontal
+  form
     .form-group
       = form.label :title
       = form.text_field  :title, class: 'form-control'

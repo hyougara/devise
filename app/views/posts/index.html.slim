@@ -24,7 +24,7 @@ table.table.table-hover
           td = post.content
           td = post.status_i18n
           td = post.priority_i18n
-          td = post.limit
+          td = l post.limit, format: :long
           td = render 'posts/tag_list', tag_list: post.tag_list
           td = link_to '詳細', post
           td = link_to '編集', edit_post_path(post)
