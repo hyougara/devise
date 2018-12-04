@@ -8,24 +8,25 @@
     = fa_icon("heart lg" ,class: "icon_favorite")
   end
   = @favorites_count
-p
-  strong Title:
-  = @post.title
-p
-  strong Content:
-  = @post.content
-p
-  strong Status:
-  = @post.status_i18n
-p
-  strong Priority:
-  = @post.priority_i18n
-p
-  strong Limit:
-  = @post.limit
-p
-  strong tag:
-  = @post.tag_list
+
+table.table.table-hover
+    thead
+      tr
+        th  Title:
+        th  Content:
+        th  Status:
+        th  Priority:
+        th  Limit:
+        th  tag:
+    
+    tbody
+      tr.warning
+        td = @post.title
+        td = @post.content
+        td = @post.status_i18n
+        td = @post.priority_i18n
+        td = @post.limit
+        td = @post.tag_list
 
 
 = link_to '編集', edit_post_path(@post)
