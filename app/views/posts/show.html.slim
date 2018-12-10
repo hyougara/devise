@@ -1,13 +1,8 @@
 - provide(:title, "詳細")
-- if Favorite.find_by(user_id: current_user.id, post_id: @post.id)
-  = link_to "/favorites/#{@post.id}/destroy", {method: "post"} do
-    = fa_icon("heart lg ",class: "icon_unfavorite")
-  end
-- else
-  = link_to "/favorites/#{@post.id}/create", {method: "post"} do
-    = fa_icon("heart lg" ,class: "icon_favorite")
-  end
-  = @favorites_count
+= link_to favorite_post_path(current_user.favorites) do
+  = fa_icon("heart lg ",class: "icon_unfavorite")
+end 
+
 
 table.table.table-hover
     thead
@@ -30,5 +25,4 @@ table.table.table-hover
 
 
 = link_to '編集', edit_post_path(@post)
-|  | 
 = link_to '戻る', posts_path

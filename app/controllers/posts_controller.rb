@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @favorites_count = Favorite.where(post_id: @post.id).count
+    
   end
 
   def new
@@ -42,9 +42,8 @@ class PostsController < ApplicationController
   end
 
   private
-
     def set_post
-      @post = current_user.posts.find(params[:id])
+      @post = Post.find(params[:id])
 
     end
 

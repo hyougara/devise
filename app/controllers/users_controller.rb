@@ -12,4 +12,5 @@ class UsersController < ApplicationController
     User.find_by(id: params[:id]).destroy
     redirect_to root_path, notice: "ユーザーを削除しました"
   end
+  
 end

@@ -5,8 +5,8 @@ Rails.application.routes.draw do
     :registrations    => 'users/registrations',
   }
   # progateの書き方 あとで書き直す
-  post "favorites/:post_id/create" => "favorites#create"
-  post "favorites/:post_id/destroy" => "favorites#destroy"
+  # post "favorites/:post_id/create" => "favorites#create"
+  # post "favorites/:post_id/destroy" => "favorites#destroy"
 
   resources :posts
   resources :users ,only: [:index, :show, :destroy]
