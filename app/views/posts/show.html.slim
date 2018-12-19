@@ -1,12 +1,9 @@
 - provide(:title, "詳細")
-= link_to favorite_post_path(current_user.favorites) do
-  = fa_icon("heart lg ",class: "icon_unfavorite")
-end 
-
 
 table.table.table-hover
     thead
       tr
+        th  
         th  Title:
         th  Content:
         th  Status:
@@ -16,12 +13,13 @@ table.table.table-hover
     
     tbody
       tr.warning
+        td.unfavorite = fa_icon 'heart lg '
         td = @post.title
         td = @post.content
         td = @post.status_i18n
         td = @post.priority_i18n
         td = @post.limit
-        td = @post.tag_list
+        td = render 'posts/tag_list', tag_list: @post.tag_list
 
 
 = link_to '編集', edit_post_path(@post)

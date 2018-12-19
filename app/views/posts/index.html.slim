@@ -9,6 +9,7 @@ h1 投稿
 table.table.table-hover
   thead
     tr
+      th 
       th タイトル
       th 内容
       th = sort_link(@q, :status, "状態")
@@ -20,6 +21,7 @@ table.table.table-hover
     - if current_user
       - @posts.each do |post|
         tr.warning
+          td.unfavorite = fa_icon 'heart lg'
           td = post.title
           td = post.content
           td = post.status_i18n

@@ -14,4 +14,10 @@
 //= require rails-ujs
 //= require_tree .
 //= require bootstrap-sprockets
-$
+
+$(function(){
+  $('p').on('click',function(){
+    $('body, html').animate({
+      scrollTop: 0
+    },"slow");
+  });

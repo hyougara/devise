@@ -14,10 +14,16 @@ class FavoritesController < ApplicationController
 
     def toggle(present)
       if present
-        @favorite.destroy ? render :head, 200 : render :head, 500
+        @favorite.destroy ? render head :200 render head ('unprocessable_entity')
       else
-        @favorite = current_user.favories.build(post: @post)
-        @favorite.save ? render :head, 200 : render :head, 403
+        @favorite = current_user.favories.build(favorites_params)
+        @favorite.save ? 
+        render (head: 'created')  render (head: 'unprocessable_entity')
       end
     end
+
+    def favorites_params
+      params.permit(:post_id)
+    end
+
 end

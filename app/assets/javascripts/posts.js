@@ -1,6 +1,20 @@
-// const hey = ' ES2015';
-// alert(`Hello World ${hey}`);
+$(function(){
+  // $('.unfavorite').on('click', function(){
+  //   $(this).toggleClass('favorite')
+  // })
 
-$('.icon_unfavorite').click(function(){
-  $(''.icon_unfavorite').css('color','#8899a6');
+  $('.unfavorite').on('click',function(){
+    $.ajax({
+        url:'/favorites',
+        type:'POST',
+    })
+    .done((data) => {
+      console.log('/posted/favorites')
+
+        $(this).toggleClass("favorite");
+    })
+    .fail((data) => {
+      alert('お気に入りの登録に失敗しました');
+    })
+  });
 });

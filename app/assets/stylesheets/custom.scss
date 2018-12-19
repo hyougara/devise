@@ -6,12 +6,12 @@
 body{
   padding-top: 70px;
 }
-.icon_unfavorite{
-  color:#8899a6;
+.unfavorite{
+  color:white;
 }
 
-.icon_favorite{
-  color:#ff2581;
+.favorite{
+  color:red;
 }
 
 .user-profile{
@@ -57,3 +57,29 @@ body{
 .btn.btn-warning.btn-lg{
   margin-bottom: 10px;
 }
+
+p.up{
+  position: fixed ;
+  right: 20px;
+  bottom: 5px;
+}
+// .menu{
+// background-color: #ffffff;
+// border: 1px solid #dedede;
+// border-radius: 5px;
+// box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
+// color: #888888;
+// display: block;
+// margin: 1em 1%;
+// overflow: hidden;
+// width: 100%;
+//   ul {
+//     margin: 0;
+//     padding: 0;
+//     li{
+//       display: inline-block;
+//       list-style-type: none;
+
+//     }
+//   }
+// }
