@@ -21,3 +21,4 @@ $(function(){
       scrollTop: 0
     },"slow");
   });
+});
