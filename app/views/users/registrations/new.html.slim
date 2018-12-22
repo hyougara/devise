@@ -9,10 +9,7 @@ h2 Sign up
     = f.label :email
     br
     = f.email_field :email, autofocus: true, autocomplete: "email"
-    / まだ反映されない
-  / .image
-  /   = f.label :image_name
-  /   = f.file_field :image_name
+
   .field
     = f.label :password
     - if @minimum_password_length

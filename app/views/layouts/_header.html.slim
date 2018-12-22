@@ -11,7 +11,6 @@ header
       #navbar.navbar-collapse.collapse
         ul.nav.navbar-nav
           - if user_signed_in?
-              li = link_to 'Task作成', new_post_path
               li = link_to 'My Page', current_user
               - if current_user.admin?
                 li = link_to '管理者ページ', "/admin/users"
@@ -26,40 +25,3 @@ header
                 li = link_to 'ログアウト', destroy_user_session_path, method: :delete
           - else
             li = link_to 'ログイン', new_user_session_path
-/ .container
-/   .menu
-/     ul
-/       - if user_signed_in?
-/           li = link_to '新規作成', new_post_path
-/           li = current_user.username
-/           ul
-/             li = link_to "マイページ", current_user
-/             li = link_to "ログアウト", destroy_user_session_path, method: :delete
-/             - if current_user.admin?
-/                 li = link_to '管理者ページ', 'admin/users'
-/       - else
-/           li = link_to "ログイン", new_user_session_path
-    
-
-/ <ul id="menu">
-/         <li>トップ</li>
-/         <li>ニュース
-/         <ul class="child">
-/             <li><a href="#">プレスリリース</a></li>
-/             <li><a href="#">お知らせ</a></li>
-/             </ul>
-/         </li>
-/     <li>採用情報
-/         <ul class="child">
-/             <li><a href="#">新卒採用</a></li>
-/             <li><a href="#">中途採用</a></li>
-/         </ul>
-/     </li>
-/     <li class="menu">会社案内
-/         <ul class="child">
-/               <li><a href="#">会社概要</a></li>
-/               <li><a href="#">沿革</a></li>
-/               <li><a href="#">アクセスマップ</a></li>
-/         </ul>
-/     </li>
-/ </ul>

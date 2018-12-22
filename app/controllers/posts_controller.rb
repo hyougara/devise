@@ -21,11 +21,16 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     @post.tag_list.add(params[:tag_list],parse: true)
+    respond_to do |format|
+
       if @post.save
-        redirect_to root_path, notice: '投稿しました'
+        format.html {redirect_to root_path, notice: '投稿しました'}
+        format.js { @status = "success"}
       else
-        render :new 
+        format.html {render :new }
+        format.js { @status = "fail"}
       end
+    end
   end
 
   def update
@@ -43,7 +48,7 @@ class PostsController < ApplicationController
 
   private
     def set_post
-      @post = Post.find(params[:id])
+      @post = Post.find(params[:post_id])
 
     end
 
