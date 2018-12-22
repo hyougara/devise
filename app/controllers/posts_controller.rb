@@ -2,9 +2,9 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
-  def index
+  def index  
     @q = current_user.posts.ransack(params[:q])
-    @posts = @q.result.page(params[:page])
+    @posts = @q.result.page( params[:page])
   end
 
   def show
@@ -21,15 +21,11 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     @post.tag_list.add(params[:tag_list],parse: true)
-    respond_to do |format|
 
-      if @post.save
-        format.html {redirect_to root_path, notice: '投稿しました'}
-        format.js { @status = "success"}
-      else
-        format.html {render :new }
-        format.js { @status = "fail"}
-      end
+    if @post.save
+      redirect_to root_path, notice: '投稿しました'
+    else
+      render :new 
     end
   end
 
@@ -48,8 +44,7 @@ class PostsController < ApplicationController
 
   private
     def set_post
-      @post = Post.find(params[:post_id])
-
+      @post = Post.find(params[:id])
     end
 
     def post_params

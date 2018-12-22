@@ -1,6 +1,6 @@
 .modal-dialog
   .modal-content
-    = form_with model: @post do |form|
+    = form_with model: @post, local: true do |form|
       = render 'shared/error_message'
       form
         .form-group
