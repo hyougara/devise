@@ -1,26 +1,25 @@
-.modal-dialog
-  .modal-content
-    = form_with model: @post, local: true do |form|
-      = render 'shared/error_message'
-      form
-        .form-group
-          = form.label :title
-          = form.text_field  :title, class: 'form-control'
-        .form-group
-          = form.label :content
-          = form.text_area :content, class: 'form-control'
-          = form.hidden_field :user_id, value: current_user.id
-        .from-group
-          = form.label :status ,"状態"
-          = form.select :status ,Post.statuses_i18n.invert, {}, class: 'form-control'
-        .form-group
-          = form.label :priority ,"優先度"
-          = form.select :priority ,Post.priorities_i18n.invert,{}, class:'form-control'
-        .form-group
-          = form.label :limit ,"期限"
-          = form.date_field :limit , use_month_numbers: true, class:'form-control'
-        .form-group
-          = form.label :tag ,"タグ(,区切り)"
-          = text_field_tag "post[tag_list]", @post.tag_list.join(","), class: 'form-control'
-        .form-group
-          = form.submit "投稿", class: "btn btn-warning"
+
+= form_with model: @post, local: true do |form|
+  = render 'shared/error_message'
+  form
+    .form-group
+      = form.label :title
+      = form.text_field  :title, class: 'form-control'
+    .form-group
+      = form.label :content
+      = form.text_area :content, class: 'form-control'
+      = form.hidden_field :user_id, value: current_user.id
+    .from-group
+      = form.label :status ,"状態"
+      = form.select :status ,Post.statuses_i18n.invert, {}, class: 'form-control'
+    .form-group
+      = form.label :priority ,"優先度"
+      = form.select :priority ,Post.priorities_i18n.invert,{}, class:'form-control'
+    .form-group
+      = form.label :limit ,"期限"
+      = form.date_field :limit , use_month_numbers: true, class:'form-control'
+    .form-group
+      = form.label :tag ,"タグ(,区切り)"
+      = text_field_tag "post[tag_list]", @post.tag_list.join(","), class: 'form-control'
+    .form-group
+      = form.submit "投稿", class: "btn btn-warning"
