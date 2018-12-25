@@ -26,10 +26,10 @@ ja:
 
   date:
     formats:
-      default: ! "%Y/%m/%d"
-      long: ! "%Y年%m月%d日(%a)"
-      short: ! "%m/%d"
-      dot: ! '%Y.%m.%d'
+      default: "%Y/%m/%d"
+      long: "%Y年%m月%d日(%a)"
+      short: "%m/%d"
+      dot: '%Y.%m.%d'
       
   time:
     formats:
