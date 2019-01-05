@@ -16,6 +16,7 @@ gem 'devise'
 gem 'omniauth-twitter'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'rmagick'
 gem 'slim-rails'
 gem 'html2slim'
 gem "font-awesome-rails"

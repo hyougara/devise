@@ -13,7 +13,10 @@ table.table.table-hover
     
     tbody
       tr.warning
-        td.unfavorite = fa_icon 'heart lg '
+        - if @post.favorites.present?
+            td = fa_icon 'heart lg', 'data-post_id': @post.id, class: 'favorite'
+        - else
+            td = fa_icon 'heart lg', 'data-post_id': @post.id, class: 'unfavorite'
         td = @post.title
         td = @post.content
         td = @post.status_i18n

@@ -34,9 +34,9 @@ h2 ユーザー編集
       | (確認の為現在のパスワードを入力してください)
     br
     = f.password_field :current_password, autocomplete: "current-password"
-  .circle-avatar
-    - if current_user.persisted? && current_user.image_name?
-      = image_tag current_user.image_name.to_s
+  .image-name
+    - if current_user.image_name.present?
+      = image_tag current_user.image_name.thumb.url, size:'50x50'
       label
         = f.check_box :remove_image_name
         |  画像を削除
