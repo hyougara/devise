@@ -1,11 +1,8 @@
 class FavoritesController < ApplicationController
   before_action :set_post, only: %i(create)
 
-
   def create
-    
     @favorite = current_user.favorites.find_by(post: @post)
-    
     toggle(@favorite.present?)
   end
 

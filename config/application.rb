@@ -14,6 +14,8 @@ module Devise
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb.yml}').to_s]
     config.time_zone = 'Tokyo'
     config.generators.template_engine = :slim #これで作成されるerbファイルはslimのファイルになる
+    config.assets.initialize_on_precompile = false
+    
 
 
     # Settings in config/environments/* take precedence over those specified here.
